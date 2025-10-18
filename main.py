@@ -6,6 +6,7 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
+    ship = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
     dt = 0
 
     while True:
@@ -13,8 +14,9 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
+        ship.update(dt)
+
         screen.fill("black")
-        ship = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
         ship.draw(screen)
         pygame.display.flip()
         
