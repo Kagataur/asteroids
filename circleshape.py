@@ -21,3 +21,7 @@ class CircleShape(pygame.sprite.Sprite):
 
     def rotate(self, dt):
        pass
+        
+    def collide(self, other_circle):
+        d = pygame.Vector2.distance_to(self.position, other_circle.position)
+        return d < (self.radius + other_circle.radius)
